@@ -22,6 +22,7 @@ var mixer;
 loader.load(
   'model/Dragon.gltf',
   function(gltf) {
+    document.getElementById('loading').style.visibility = 'hidden';
     mesh = gltf;
     scene.add(gltf.scene);
     mixer = new THREE.AnimationMixer(mesh.scene);

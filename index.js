@@ -67,6 +67,13 @@ function calcZoom() {
   camera.position.z = z;
   camera.position.x = x;
   camera.lookAt(0, 10, 0);
+
+  const firstColor = { r: 28, g: 5, b: 98 };
+  const secondColor = { r: 74, g: 22, b: 196 };
+  const r = firstColor.r + Math.floor((secondColor.r - firstColor.r) * (percentage / 100));
+  const g = firstColor.g + Math.floor((secondColor.g - firstColor.g) * (percentage / 100));
+  const b = firstColor.b + Math.floor((secondColor.b - firstColor.b) * (percentage / 100));
+  document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
 window.addEventListener('scroll', ev => {

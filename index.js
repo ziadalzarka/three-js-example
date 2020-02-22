@@ -2,7 +2,6 @@ const maxScroll = Math.floor(document.body.scrollHeight - window.innerHeight);
 
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
 var renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setClearColor(0x000000, 0);
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -33,13 +32,17 @@ loader.load(
     action.play();
     action.time = 0.3;
   },
-  undefined,
+  // called while loading is progressing
+  function(xhr) {
+    console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+  },
+  // called when loading has errors
   function(error) {
-    console.error(error);
+    console.log('An error happened');
   }
 );
 
-camera.position.y = 20;
+camera.position.y = 30;
 calcZoom();
 var clock = new THREE.Clock();
 
@@ -54,8 +57,16 @@ var animate = function() {
 animate();
 
 function calcZoom() {
-  const percentage = window.scrollY / maxScroll;
-  camera.position.z = 50 + Math.floor(percentage * 100);
+  const percentage = Math.floor((window.scrollY / maxScroll) * 100);
+  const rx = 50;
+  const rz = 50;
+  const angle = percentage * (Math.PI / 180);
+  const z = 50 + Math.floor(rz * Math.sin(angle));
+  const x = -40 + Math.floor(rx * Math.cos(angle));
+  document.getElementById('position').innerText = `${x}, ${z} ${percentage}%`;
+  camera.position.z = z;
+  camera.position.x = x;
+  camera.lookAt(0, 10, 0);
 }
 
 window.addEventListener('scroll', ev => {

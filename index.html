@@ -7,7 +7,8 @@
   <style>
     body {
       margin: 0;
-      background: #1c0562;
+      background-color: #1c0562;
+      transition: background-color 0.5s;
     }
 
     canvas {
@@ -36,6 +37,13 @@
     .blue {
       background: blue;
     }
+
+    #position {
+      right: 0;
+      color: white;
+      font-size: 20px;
+      position: fixed;
+    }
   </style>
 </head>
 
@@ -45,16 +53,18 @@
 
   <div class="contaniner">
     <p id="loading" style="color: white;">Loading...</p>
-    <div class="box red"></div>
-    <div class="box green"></div>
-    <div class="box blue"></div>
-    <div class="box red"></div>
-    <div class="box green"></div>
-    <div class="box blue"></div>
+    <p id="position">0,0</p>
+    <div class="box red">Content</div>
+    <div class="box green">Content</div>
+    <div class="box blue">Content</div>
+    <div class="box red">Content</div>
+    <div class="box green">Content</div>
+    <div class="box blue">Content</div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
   <script src="GLTFLoader.js"></script>
+  <script src="OrbitControls.js"></script>
   <script src="index.js"></script>
 </body>
 

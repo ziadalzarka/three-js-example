@@ -1,0 +1,10 @@
+{
+  "name": "three-js-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ziad Alzarka <ziadalzarka@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.113.2"
+  }
+}

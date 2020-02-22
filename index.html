@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>My first three.js app</title>
+  <style>
+    body {
+      margin: 0;
+      background: #1c0562;
+    }
+
+    canvas {
+      display: block;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .box {
+      width: 100px;
+      height: 300px;
+      margin-bottom: 50px;
+      opacity: 0.5;
+    }
+
+    .red {
+      background: red;
+    }
+
+    .green {
+      background: green;
+    }
+
+    .blue {
+      background: blue;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="model"></div>
+
+  <div class="contaniner">
+    <div class="box red"></div>
+    <div class="box green"></div>
+    <div class="box blue"></div>
+    <div class="box red"></div>
+    <div class="box green"></div>
+    <div class="box blue"></div>
+  </div>
+
+  <script src="node_modules/three/build/three.min.js"></script>
+  <script src="node_modules/three/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

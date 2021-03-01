@@ -5,6 +5,6 @@
   "author": "Ziad Alzarka <ziadalzarka@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "three": "^0.113.2"
+    "three": "^0.125.0"
   }
 }
